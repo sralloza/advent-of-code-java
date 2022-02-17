@@ -6,14 +6,14 @@ import java.util.stream.Collectors;
 
 import es.sralloza.AOCBase;
 
-public class Day02 extends AOCBase {
+public class Day02 extends AOCBase <Integer> {
     public static void main(String[] args) {
         Day02 day = new Day02();
         day.run();
     }
 
     @Override
-    public Optional<String> runPartA() {
+    public Optional<Integer> runPartA() {
         List<String> inputLines = getFiledata().lines().collect(Collectors.toList());
         Integer x = 0;
         Integer y = 0;
@@ -26,11 +26,11 @@ public class Day02 extends AOCBase {
             else if (line.contains("up"))
                 y -= number;
         }
-        return Optional.of(Integer.toString(x * y));
+        return Optional.of(x * y);
     }
 
     @Override
-    public Optional<String> runPartB() {
+    public Optional<Integer> runPartB() {
 
         List<String> inputLines = getFiledata().lines().collect(Collectors.toList());
         Integer aim = 0;
@@ -46,6 +46,6 @@ public class Day02 extends AOCBase {
             else if (line.contains("up"))
                 aim -= number;
         }
-        return Optional.of(Integer.toString(x * y));
+        return Optional.of(x * y);
     }
 }

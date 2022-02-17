@@ -7,17 +7,17 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Optional;
 
-public abstract class AOCBase implements AOCInterface {
+public abstract class AOCBase<T> implements AOCInterface <T> {
     private String filedata;
 
     public void run() {
         getData();
 
-        Optional<String> resultA = runPartA();
+        Optional<T> resultA = runPartA();
         if (resultA.isPresent())
         System.out.println("Part A: " + resultA.get());
 
-        Optional<String> resultB = runPartB();
+        Optional<T> resultB = runPartB();
         if (resultB.isPresent())
         System.out.println("Part B: " + resultB.get());
     }

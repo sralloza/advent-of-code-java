@@ -8,25 +8,25 @@ import java.util.stream.Stream;
 
 import es.sralloza.AOCBase;
 
-public class Day01 extends AOCBase {
+public class Day01 extends AOCBase<Integer> {
     public static void main(String[] args) {
         Day01 day = new Day01();
         day.run();
     }
 
     @Override
-    public Optional<String> runPartA() {
+    public Optional<Integer> runPartA() {
         Stream<String> inputLinesStream = getFiledata().lines();
         List<Integer> lectures = inputLinesStream.map(Integer::parseInt).collect(Collectors.toList());
         List<Integer> differences = IntStream.range(0, lectures.size() - 1)
                 .map(i -> lectures.get(i + 1) - lectures.get(i)).boxed().collect(Collectors.toList());
 
         Integer increases = (int) differences.stream().filter(t -> t > 0).count();
-        return Optional.of(increases.toString());
+        return Optional.of(increases);
     }
 
     @Override
-    public Optional<String> runPartB() {
+    public Optional<Integer> runPartB() {
         Stream<String> inputLinesStream = getFiledata().lines();
         List<Integer> lectures = inputLinesStream.map(Integer::parseInt).collect(Collectors.toList());
         List<Integer> windows = IntStream.range(0, lectures.size() - 2)
@@ -37,6 +37,6 @@ public class Day01 extends AOCBase {
                 .map(i -> windows.get(i + 1) - windows.get(i)).boxed().collect(Collectors.toList());
 
         Integer increases = (int) differences.stream().filter(t -> t > 0).count();
-        return Optional.of(increases.toString());
+        return Optional.of(increases);
     }
 }

@@ -14,13 +14,13 @@ public class Day01Test {
     public void testPart1() {
         Day01 day = new Day01();
         day.setFiledata(filedata);
-        assertEquals(Optional.of("7"), day.runPartA());
+        assertEquals(Optional.of(7), day.runPartA());
     }
 
     @Test
     public void testPart2() {
         Day01 day = new Day01();
         day.setFiledata(filedata);
-        assertEquals(Optional.of("5"), day.runPartB());
+        assertEquals(Optional.of(5), day.runPartB());
     }
 }
